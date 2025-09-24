@@ -1,0 +1,7 @@
+{
+  "name": "IndieBooks",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
