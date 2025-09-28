@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<!-- Contenido principal con pantalla completa -->
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+
+    <!-- Título de la sección -->
+    <h2>
+      Nuestros libros
+    </h2>
+
+    <!-- Sección que se muestra solo si hay productos disponibles -->
+    <!-- "productos$" es un Observable, y con el pipe async nos suscribimos automáticamente -->
+    <ion-grid *ngIf="productos$ | async as productos">
+      <ion-row>
+
+        <!-- Recorre cada producto y genera una tarjeta (2 por fila porque size=6 en un grid de 12 columnas) -->
+        <ion-col size="6" *ngFor="let producto of productos">
+
+          <!-- Tarjeta con la información del producto -->
+          <ion-card>
+
+            <!-- Imagen del producto -->
+            <img src="{{producto.imagenUrl}}" [alt]="producto.nombre" />
+
+            <!-- Encabezado de la tarjeta con nombre y precio -->
+            <ion-card-header>
+              <ion-card-title class="tituloCard">{{ producto.nombre }}</ion-card-title>
+              <ion-card-title class="precioCard" color="tercero">$ {{ producto.precio }}</ion-card-title>
+            </ion-card-header>
+
+            <!-- Botón para agregar el producto al carrito -->
+            <ion-button shape="Round" (click)="agregarAlCarrito(producto)" class="btnAlCarro ion-margin-bottom"
+              color="segundo">
+
+              <!-- Ícono del carrito -->
+              <ion-icon name="cart-outline" class="ion-margin-end" slot="start" color="neutro">
+              </ion-icon>
+
+              Agregar al carrito
+            </ion-button>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<!-- Componente de pie de página reutilizable -->
+<app-footer></app-footer>

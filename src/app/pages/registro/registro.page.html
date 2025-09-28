@@ -1,0 +1,64 @@
+<ion-content color="neutro" class="ion-padding contenido ion-text-center">
+
+  <!-- Formulario con template-driven forms de Angular (usamos #form="ngForm") -->
+  <form #form="ngForm">
+
+    <!-- Logo de la app -->
+    <ion-img src="assets/icon/icon.jpg" class="ion-margin logoLogin"></ion-img>
+
+    <!-- Título de la página -->
+    <h1 color="segundo" class="tituloPagina">REGISTRATE</h1>
+
+    <!-- Lista de entradas de datos -->
+    <ion-list>
+
+      <!-- Campo: Nombre -->
+      <ion-item class="entrada ion-margin-top">
+        <ion-icon name="person-outline" slot="start" color="tercero"></ion-icon>
+        <ion-input color="segundo" label="Nombre" type="text" [(ngModel)]="credenciales.nombre"
+          labelPlacement="floating" placeholder="Ingrese su Nombre" name="nombre" required>
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo: Apellido -->
+      <ion-item class="entrada ion-margin-top">
+        <ion-icon name="person-outline" slot="start" color="tercero"></ion-icon>
+        <ion-input color="segundo" label="Apellido" type="text" [(ngModel)]="credenciales.apellido"
+          labelPlacement="floating" placeholder="Ingrese su Apellido" name="apellido" required>
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo: Teléfono -->
+      <ion-item class="entrada ion-margin-top">
+        <ion-icon name="call-outline" slot="start" color="tercero"></ion-icon>
+        <ion-input color="segundo" label="Teléfono" type="tel" [(ngModel)]="credenciales.telefono"
+          labelPlacement="floating" placeholder="Ingrese su Telefono" name="telefono" required>
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo: Email -->
+      <ion-item class="entrada ion-margin-top">
+        <ion-icon name="mail-outline" slot="start" color="tercero"></ion-icon>
+        <ion-input color="segundo" label="Email" type="email" [(ngModel)]="credenciales.email" labelPlacement="floating"
+          placeholder="Ingrese su Email" name="email" required>
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo: Contraseña -->
+      <ion-item class="entrada ion-margin-top ion-margin-buttom">
+        <ion-icon name="key-outline" slot="start" color="tercero"></ion-icon>
+        <ion-input color="segundo" label="Contraseña" type="password" [(ngModel)]="credenciales.password"
+          labelPlacement="floating" placeholder="Mínimo 6 caracteres" name="password" required minlength="6">
+        </ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <!-- Botón para enviar el formulario -->
+    <ion-button class="ion-margin botonDeAccion" (click)="registrar()" size="large" expand="block" shape="round"
+      color="primero" [disabled]="form.invalid">
+      Registrarme
+    </ion-button>
+
+  </form>
+</ion-content>

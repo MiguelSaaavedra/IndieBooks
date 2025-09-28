@@ -1,0 +1,19 @@
+ion-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-card-header{
+    align-items: center;
+
+}
+
+.precioCard{
+    font-size: 2rem;
+}
+
+.tituloCard{
+    font-weight: 900;
+}

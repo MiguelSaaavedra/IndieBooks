@@ -1,0 +1,67 @@
+<app-header></app-header>
+
+<!-- Contenido principal de la página de perfil -->
+<ion-content color="neutro" class="ion-padding contenido ion-text-center">
+
+  <!-- Formulario con ngForm para validaciones -->
+  <form #form="ngForm">
+
+    <!-- Título de la página -->
+    <h1 color="segundo" class="tituloPagina">Tu Perfil</h1>
+
+    <!-- Lista que contiene los campos del perfil -->
+    <ion-list>
+
+      <!-- Campo: Nombre -->
+      <ion-item class="entrada ion-margin-top">
+        <!-- Ícono del campo -->
+        <ion-icon name="person-outline" slot="start" color="tercero"></ion-icon>
+        <!-- Input enlazado al modelo datosUsuario.nombre -->
+        <ion-input color="segundo" label="Nombre" type="text" [(ngModel)]="datosUsuario.nombre"
+          labelPlacement="floating" placeholder="Ingrese su Nombre" name="nombre" required>
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo: Apellido -->
+      <ion-item class="entrada ion-margin-top">
+        <ion-icon name="person-outline" slot="start" color="tercero"></ion-icon>
+        <ion-input color="segundo" label="Apellido" type="text" [(ngModel)]="datosUsuario.apellido"
+          labelPlacement="floating" placeholder="Ingrese su Apellido" name="apellido" required>
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo: Teléfono -->
+      <ion-item class="entrada ion-margin-top">
+        <ion-icon name="call-outline" slot="start" color="tercero"></ion-icon>
+        <ion-input color="segundo" label="Telefono" type="tel" [(ngModel)]="datosUsuario.telefono"
+          labelPlacement="floating" placeholder="Ingrese su Telefono" name="telefono" required>
+        </ion-input>
+      </ion-item>
+
+      <!-- Campo: Email (solo lectura, deshabilitado) -->
+      <ion-item class="entrada ion-margin-top">
+        <ion-icon name="mail-outline" slot="start" color="tercero"></ion-icon>
+        <ion-input color="segundo" label="Email" type="email" [(ngModel)]="datosUsuario.email" labelPlacement="floating"
+          placeholder="Ingrese su Email" name="email" disabled>
+        </ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <!-- Botón para guardar cambios -->
+    <!-- Se desactiva si el formulario no es válido -->
+    <ion-button class="ion-margin botonDeAccion" (click)="guardarCambios()" size="large" expand="block" shape="round"
+      color="segundo" [disabled]="!form.valid">
+      Guardar Cambios
+    </ion-button>
+
+    <!-- Botón para cerrar sesión -->
+    <ion-button class="ion-margin botonDeAccion" size="large" expand="block" shape="round" fill="outline"
+      color="tercero" (click)="cerrarSesion()">
+      Cerrar Sesión
+    </ion-button>
+
+  </form>
+</ion-content>
+
+<app-footer></app-footer>

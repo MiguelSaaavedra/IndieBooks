@@ -1,0 +1,80 @@
+<!-- Contenedor principal de la vista -->
+<ion-content color="neutro" class="ion-padding contenido ion-text-center">
+
+  <!-- Logo de la aplicación -->
+  <ion-img 
+    src="assets/icon/icon.jpg" 
+    class="ion-margin logoLogin" 
+    alt="icon">
+  </ion-img>
+
+  <!-- Título de bienvenida -->
+  <h1 color="segundo" class="tituloPagina">BIENVENIDO</h1>
+
+  <!-- Lista que contiene los campos de entrada -->
+  <ion-list class="ion-list-login">
+
+    <!-- Campo para ingresar el correo electrónico -->
+    <ion-item class="entrada ion-margin-top">
+      <!-- Icono de email -->
+      <ion-icon 
+        name="mail-outline" 
+        slot="start" 
+        color="tercero">
+      </ion-icon>
+
+      <!-- Input de email, enlazado al modelo credenciales.email -->
+      <ion-input 
+        color="primero" 
+        label="Email" 
+        labelPlacement="floating" 
+        [(ngModel)]="credenciales.email"
+        placeholder="Ingrese su Email">
+      </ion-input>
+    </ion-item>
+
+    <!-- Campo para ingresar la contraseña -->
+    <ion-item class="entrada ion-margin-top">
+      <!-- Icono de llave -->
+      <ion-icon 
+        name="key-outline" 
+        slot="start" 
+        color="tercero">
+      </ion-icon>
+
+      <!-- Input de contraseña, enlazado al modelo credenciales.password -->
+      <ion-input 
+        color="segundo" 
+        type="password" 
+        label="Contraseña" 
+        [(ngModel)]="credenciales.password"
+        labelPlacement="floating" 
+        placeholder="Ingrese su Contraseña">
+      </ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- Botón principal para iniciar sesión -->
+  <ion-button 
+    class="ion-margin botonDeAccion" 
+    (click)="iniciarSesion()" 
+    size="large" 
+    expand="block" 
+    shape="round"
+    color="primero">
+    Iniciar Sesión
+  </ion-button>
+
+  <!-- Enlace para redirigir a la página de registro -->
+  <div class="registro">
+    <p>¿No tienes cuenta?</p>
+    <button 
+      class="letraColor" 
+      color="neutro" 
+      (click)="goToRegistro()">
+      Registrate
+    </button>
+  </div>
+
+</ion-content>

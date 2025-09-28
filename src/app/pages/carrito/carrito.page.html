@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <h2>Mi Carrito de Compras</h2>
+
+    <!-- Lista de productos en el carrito -->
+    <ion-list>
+      <!-- Si el carrito está vacío, muestra este mensaje -->
+      <ion-item *ngIf="(carrito$ | async)?.length === 0">
+        <ion-label color="segundo">Tu carrito está vacío.</ion-label>
+      </ion-item>
+
+      <!-- Recorre cada producto en el carrito y los muestra -->
+      <ion-item *ngFor="let producto of carrito$ | async">
+        <!-- Miniatura del producto -->
+        <ion-thumbnail slot="start">
+          <img src="{{producto.imagenUrl}}" />
+        </ion-thumbnail>
+
+        <!-- Información del producto -->
+        <ion-label>
+          <h3 class="nombreProd">{{ producto.nombre }}</h3>
+          <p>Cantidad: {{ producto.cantidad }}</p>
+          <p>Precio: <strong>${{ producto.precio | number: '1.2-2' }}</strong></p>
+        </ion-label>
+
+        <!-- Botón para eliminar el producto -->
+        <ion-button slot="end" fill="clear" color="danger" (click)="eliminarProducto(producto)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <!-- Total de la compra -->
+    <ion-item>
+      <ion-label>
+        <h3>Total:</h3>
+      </ion-label>
+      <ion-label slot="end" color="segundo">
+        <h3>${{ total | number: '1.2-2' }}</h3>
+      </ion-label>
+    </ion-item>
+
+    <!-- Botón para confirmar la compra -->
+    <ion-button expand="block" shape="round" color="segundo" (click)="finalizarCompra()">
+      Finalizar Compra
+    </ion-button>
+
+    <!-- Botón para vaciar todo el carrito -->
+    <ion-button expand="block" shape="round" fill="outline" color="tercero" (click)="vaciarCarrito()">
+      Vaciar Carrito
+    </ion-button>
+
+  </div>
+</ion-content>
+
+<app-footer></app-footer>
